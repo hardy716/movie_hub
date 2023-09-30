@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:movie_hub/common/constant/app_colors.dart';
-
-import 'screen/main/s_main.dart';
+import 'common/constant/app_colors.dart';
+import 'screens/movie/s_movie.dart';
 
 void main() {
   runApp(const MyApp());
@@ -17,8 +16,12 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       theme: ThemeData(
         canvasColor: AppColors.white,
+        textTheme: const TextTheme(
+          displayMedium: TextStyle(fontSize: 24.0),
+          labelMedium: TextStyle(fontSize: 16.0),
+        ),
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      home: MovieScreen(),
     );
   }
 }
