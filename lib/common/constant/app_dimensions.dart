@@ -16,3 +16,4 @@ class AppDimensions {
 
   static const double smallBoxSize = 160.0;
   static const double mediumBoxSize = 280.0;
+}
