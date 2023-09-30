@@ -3,7 +3,7 @@ class MovieModel {
   final String title, thumb, id;
 
   MovieModel.fromJson(Map<String, dynamic> json)
-      : title = json['title'],
-        thumb = '$baseImgUrl${json['backdrop_path']}', // backdrop_path
-        id = json['id'].toString();
+      : title = json['title'] ?? '',
+        thumb = "$baseImgUrl${json['backdrop_path'] ?? ''}",
+        id = json['id'].toString() ?? '';
 }

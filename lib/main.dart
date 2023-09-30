@@ -17,8 +17,8 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         canvasColor: AppColors.white,
         textTheme: const TextTheme(
-          displayMedium: TextStyle(fontSize: 24.0),
-          labelMedium: TextStyle(fontSize: 16.0),
+          displayMedium: TextStyle(fontSize: 20.0),
+          labelMedium: TextStyle(fontSize: 14.0),
         ),
       ),
       home: MovieScreen(),

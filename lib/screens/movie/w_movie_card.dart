@@ -31,7 +31,7 @@ class MovieCard extends StatelessWidget {
                     .size(context.textTheme.displayMedium!.fontSize)
                     .bold
                     .make(),
-                const SizedBox(height: AppDimensions.itemSpacing),
+                const SizedBox(height: AppDimensions.itemSpacing10),
                 Expanded(
                   child: ListView.separated(
                     shrinkWrap: true,
@@ -52,7 +52,7 @@ class MovieCard extends StatelessWidget {
                       );
                     },
                     separatorBuilder: (context, index) =>
-                        const SizedBox(width: AppDimensions.itemSpacing),
+                        const SizedBox(width: AppDimensions.itemSpacing10),
                   ),
                 ),
               ],

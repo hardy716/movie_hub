@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import '../../common/common.dart';
 import 'vo/movie_type.dart';
 import 'vo/vo_movie.dart';
-import 'dto/movie_api_service.dart';
+import '../../services/movie_api_service.dart';
 import 'w_movie_card.dart';
 
 class MovieScreen extends StatelessWidget {
@@ -22,7 +22,7 @@ class MovieScreen extends StatelessWidget {
         body: ListView(
           children: [
             const SizedBox(
-              height: 80.0,
+              height: AppDimensions.topSpacing,
             ),
             MovieCard(
               movies: popularMovies,

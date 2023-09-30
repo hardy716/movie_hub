@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:movie_hub/common/common.dart';
+import '../screens/movie_detail/s_movie_detail.dart';
 
 class Movie extends StatelessWidget {
   final String title, thumb, id;
@@ -16,7 +17,15 @@ class Movie extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () {},
+      onTap: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => MovieDetailScreen(id: id),
+            fullscreenDialog: true,
+          ),
+        );
+      },
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -41,6 +50,7 @@ class Movie extends StatelessWidget {
           if (isTitle == true)
             title.text
                 .size(context.textTheme.labelMedium!.fontSize)
+                .bold
                 .make()
                 .pSymmetric(v: 10.0),
         ],
