@@ -1,10 +1,10 @@
-|0. movie_hub [🔻](https://github.com/hardy716/nomadcoders_webtoon_challenge#-nomadcoder_webtoon_challenge)|
+|0. movie_hub [🔻](https://github.com/hardy716/movie_hub#-movie_hub)|
 |---|
 
-|1. 앱 기능 소개 [🔻](https://github.com/hardy716/nomadcoders_webtoon_challenge#%EF%B8%8F-앱-기능-소개)|
+|1. 앱 기능 소개 [🔻](https://github.com/hardy716/movie_hub#%EF%B8%8F-앱-기능-소개)|
 |---|
 
-|2. 실행 화면 [🔻](https://github.com/hardy716/nomadcoders_webtoon_challenge#-커스텀)|
+|2. 실행 화면 [🔻](https://github.com/hardy716/movie_hub#-실행-화면)|
 |---|
 
 <br></br>
