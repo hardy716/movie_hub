@@ -1,16 +1,34 @@
-# movie_hub
+|0. movie_hub [🔻](https://github.com/hardy716/nomadcoders_webtoon_challenge#-nomadcoder_webtoon_challenge)|
+|---|
 
-A new Flutter project.
+|1. 앱 기능 소개 [🔻](https://github.com/hardy716/nomadcoders_webtoon_challenge#%EF%B8%8F-앱-기능-소개)|
+|---|
 
-## Getting Started
+|2. 실행 화면 [🔻](https://github.com/hardy716/nomadcoders_webtoon_challenge#-커스텀)|
+|---|
 
-This project is a starting point for a Flutter application.
+<br></br>
 
-A few resources to get you started if this is your first Flutter project:
+## 🙌🏻 movie_hub
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+Flutter로 웹툰 앱 만들기 - #6 WEBTOON APP 강의를 기반으로 진행했습니다.
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+노마드 코더와 함께 플러터 2주 챌린지에 도전하고 있습니다.
+
+<br></br>
+
+## ⚙️ 앱 기능 소개
+
+1. 가장 인기 있는 영화 목록을 표시합니다.
+2. 극장에서 상영 중인 영화 목록을 표시합니다.
+3. 곧 개봉할 영화 목록을 표시합니다.
+4. 영화를 탭하면 세부 정보 화면으로 이동합니다.
+5. 세부 정보 화면에서는 영화의 포스터, 제목, 평점, 장르, 줄거리를 보여줍니다.
+   
+<br></br>
+
+## 🪄 실행 화면
+
+[👉🏻 실행 화면 보러가기 👈🏻](https://imgur.com/a/KZAY2e1)
+
+<br></br>
