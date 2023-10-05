@@ -26,29 +26,36 @@ class _MovieApiService implements MovieApiService {
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
     const Map<String, dynamic>? _data = null;
-    final _result = await _dio.fetch<Map<String, dynamic>>(
-        _setStreamType<Map<String, dynamic>>(Options(
-      method: 'GET',
-      headers: _headers,
-      extra: _extra,
-    )
-            .compose(
-              _dio.options,
-              '/${movieType.urlPath}',
-              queryParameters: queryParameters,
-              data: _data,
-            )
-            .copyWith(
-                baseUrl: _combineBaseUrls(
-              _dio.options.baseUrl,
-              baseUrl,
-            ))));
-    final List<dynamic> movies = _result.data!['results'];
-    var movieInstances = movies
-        .map((dynamic i) => MovieModel.fromJson(i as Map<String, dynamic>))
-        .toList();
 
-    return movieInstances;
+    try {
+      final _response = await _dio.fetch<Map<String, dynamic>>(
+          _setStreamType<Map<String, dynamic>>(Options(
+        method: 'GET',
+        headers: _headers,
+        extra: _extra,
+      )
+              .compose(
+                _dio.options,
+                '/${movieType.urlPath}',
+                queryParameters: queryParameters,
+                data: _data,
+              )
+              .copyWith(
+                  baseUrl: _combineBaseUrls(
+                _dio.options.baseUrl,
+                baseUrl,
+              ))));
+      final data = handleResponse(_response);
+      final List<dynamic> movies = data['results'];
+      var movieInstances = movies
+          .map((dynamic i) => MovieModel.fromJson(i as Map<String, dynamic>))
+          .toList();
+
+      return movieInstances;
+    } catch (e) {
+      debugPrint('Error occurred: $e');
+      rethrow;
+    }
   }
 
   @override
@@ -57,26 +64,42 @@ class _MovieApiService implements MovieApiService {
     final queryParameters = <String, dynamic>{r'id': movieID};
     final _headers = <String, dynamic>{};
     const Map<String, dynamic>? _data = null;
-    final _result = await _dio
-        .fetch<Map<String, dynamic>>(_setStreamType<MovieDetailModel>(Options(
-      method: 'GET',
-      headers: _headers,
-      extra: _extra,
-    )
-            .compose(
-              _dio.options,
-              '/movie',
-              queryParameters: queryParameters,
-              data: _data,
-            )
-            .copyWith(
-                baseUrl: _combineBaseUrls(
-              _dio.options.baseUrl,
-              baseUrl,
-            ))));
-    final movieDetailInstance = MovieDetailModel.fromJson(_result.data!);
-    print(movieDetailInstance);
-    return movieDetailInstance;
+    try {
+      final _response = await _dio
+          .fetch<Map<String, dynamic>>(_setStreamType<MovieDetailModel>(Options(
+        method: 'GET',
+        headers: _headers,
+        extra: _extra,
+      )
+              .compose(
+                _dio.options,
+                '/movie',
+                queryParameters: queryParameters,
+                data: _data,
+              )
+              .copyWith(
+                  baseUrl: _combineBaseUrls(
+                _dio.options.baseUrl,
+                baseUrl,
+              ))));
+      final movieDetailInstance = MovieDetailModel.fromJson(_response.data!);
+      return movieDetailInstance;
+    } catch (e) {
+      debugPrint('Error occurred: $e');
+      rethrow;
+    }
+  }
+
+  Map<String, dynamic> handleResponse(Response<Map<String, dynamic>> response) {
+    if (response.statusCode != 200) {
+      throw Exception(
+          'Failed to load data with status code: ${response.statusCode}');
+    }
+    if (!response.data!.containsKey('results') ||
+        response.data!['results'] is! List) {
+      throw Exception('Invalid data format');
+    }
+    return response.data!;
   }
 
   RequestOptions _setStreamType<T>(RequestOptions requestOptions) {
