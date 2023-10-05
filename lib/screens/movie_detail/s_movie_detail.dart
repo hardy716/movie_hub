@@ -1,3 +1,4 @@
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:movie_hub/common/common.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -6,12 +7,13 @@ import 'vo/vo_movie_detail.dart';
 import 'w_rating_star.dart';
 
 class MovieDetailScreen extends StatefulWidget {
+  final MovieApiService movieApiService;
   final String id;
 
-  const MovieDetailScreen({
+  MovieDetailScreen({
     super.key,
     required this.id,
-  });
+  }) : movieApiService = MovieApiService(Dio());
 
   @override
   State<MovieDetailScreen> createState() => _MovieDetailScreenState();
@@ -23,7 +25,7 @@ class _MovieDetailScreenState extends State<MovieDetailScreen> {
   @override
   void initState() {
     super.initState();
-    movieDetail = MovieApiService.getMovieDetail(widget.id);
+    movieDetail = widget.movieApiService.getMovieDetail(widget.id);
   }
 
   @override

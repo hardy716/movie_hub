@@ -5,7 +5,7 @@ import 'vo/vo_movie.dart';
 import '../../widgets/w_movie_widget.dart';
 
 class MovieCard extends StatelessWidget {
-  final Future<List<MovieModel>> movies;
+  final List<MovieModel> movies;
   final MovieType movieType;
   final String title;
 
@@ -18,51 +18,40 @@ class MovieCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return FutureBuilder(
-      future: movies,
-      builder: (context, snapshot) {
-        if (snapshot.hasData) {
-          return SizedBox(
-            height: AppDimensions.cardHeight,
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                title.text
-                    .size(context.textTheme.displayMedium!.fontSize)
-                    .bold
-                    .make(),
-                const SizedBox(height: AppDimensions.itemSpacing10),
-                Expanded(
-                  child: ListView.separated(
-                    shrinkWrap: true,
-                    scrollDirection: Axis.horizontal,
-                    itemCount: snapshot.data!.length,
-                    itemBuilder: (context, index) {
-                      var movie = snapshot.data![index];
-                      return Column(
-                        children: [
-                          Movie(
-                            title: movie.title,
-                            thumb: movie.thumb,
-                            id: movie.id,
-                            isTitle:
-                                (movieType == MovieType.popular) ? false : true,
-                          ),
-                        ],
-                      );
-                    },
-                    separatorBuilder: (context, index) =>
-                        const SizedBox(width: AppDimensions.itemSpacing10),
-                  ),
-                ),
-              ],
+    return SizedBox(
+      height: AppDimensions.cardHeight,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          title.text
+              .size(context.textTheme.displayMedium!.fontSize)
+              .bold
+              .make(),
+          const SizedBox(height: AppDimensions.itemSpacing10),
+          Expanded(
+            child: ListView.separated(
+              shrinkWrap: true,
+              scrollDirection: Axis.horizontal,
+              itemCount: movies.length,
+              itemBuilder: (context, index) {
+                var movie = movies[index];
+                return Column(
+                  children: [
+                    Movie(
+                      title: movie.title,
+                      thumb: movie.thumb,
+                      id: movie.id,
+                      isTitle: (movieType == MovieType.popular) ? false : true,
+                    ),
+                  ],
+                );
+              },
+              separatorBuilder: (context, index) =>
+                  const SizedBox(width: AppDimensions.itemSpacing10),
             ),
-          );
-        }
-        return const Center(
-          child: CircularProgressIndicator(),
-        );
-      },
+          ),
+        ],
+      ),
     );
   }
 }
