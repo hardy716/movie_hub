@@ -29,6 +29,6 @@ Flutter로 웹툰 앱 만들기 - #6 WEBTOON APP 강의를 기반으로 진행�
 
 ## 🪄 실행 화면
 
-[👉🏻 실행 화면 보러가기 👈🏻](https://imgur.com/a/KZAY2e1)
+![movie_hub](https://github.com/hardy716/movie_hub/assets/101140679/24145cef-0796-49ce-ac22-8f95dc6db5af)
 
 <br></br>
