@@ -1,15 +1,21 @@
-import 'package:json_annotation/json_annotation.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
 
+part 'vo_movie.freezed.dart';
 part 'vo_movie.g.dart';
 
-@JsonSerializable()
-class MovieModel {
+@freezed
+class MovieModel with _$MovieModel {
   static const String baseImgUrl = "https://image.tmdb.org/t/p/w500";
-  final String title, thumb, id;
 
-  MovieModel({required this.title, required this.thumb, required this.id});
+  const factory MovieModel({
+    required String title,
+    required String thumb,
+    required String id,
+  }) = _MovieModel;
 
-  factory MovieModel.fromJson(Map<String, dynamic> json) =>
-      _$MovieModelFromJson(json);
-  Map<String, dynamic> toJson() => _$MovieModelToJson(this);
+  factory MovieModel.fromJson(Map<String, dynamic> json) => MovieModel(
+        title: json['title'] as String,
+        thumb: "${MovieModel.baseImgUrl}${json['backdrop_path'] ?? ''}",
+        id: json['id'].toString(),
+      );
 }

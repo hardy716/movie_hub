@@ -6,13 +6,14 @@ part of 'vo_movie.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-MovieModel _$MovieModelFromJson(Map<String, dynamic> json) => MovieModel(
-      title: (json['title'] ?? '') as String,
-      thumb: "${MovieModel.baseImgUrl}${json['backdrop_path'] ?? ''}",
-      id: json['id'].toString(),
+_$MovieModelImpl _$$MovieModelImplFromJson(Map<String, dynamic> json) =>
+    _$MovieModelImpl(
+      title: json['title'] as String,
+      thumb: json['thumb'] as String,
+      id: json['id'] as String,
     );
 
-Map<String, dynamic> _$MovieModelToJson(MovieModel instance) =>
+Map<String, dynamic> _$$MovieModelImplToJson(_$MovieModelImpl instance) =>
     <String, dynamic>{
       'title': instance.title,
       'thumb': instance.thumb,
