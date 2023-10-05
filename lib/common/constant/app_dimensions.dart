@@ -1,5 +1,3 @@
-import 'package:flutter/material.dart';
-
 class AppDimensions {
   static const double topSpacing = 80.0;
 
