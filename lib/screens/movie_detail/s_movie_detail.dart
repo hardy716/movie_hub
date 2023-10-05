@@ -37,20 +37,6 @@ class _MovieDetailScreenState extends State<MovieDetailScreen> {
           var movieInfo = snapshot.data!;
           return Stack(
             children: [
-              ColorFiltered(
-                colorFilter: ColorFilter.mode(
-                  Colors.black.withOpacity(0.2),
-                  BlendMode.darken,
-                ),
-                child: Container(
-                  decoration: BoxDecoration(
-                    image: DecorationImage(
-                      image: NetworkImage(movieInfo.thumb),
-                      fit: BoxFit.cover,
-                    ),
-                  ),
-                ),
-              ),
               Container(
                 decoration: BoxDecoration(
                   image: DecorationImage(
@@ -58,6 +44,9 @@ class _MovieDetailScreenState extends State<MovieDetailScreen> {
                     fit: BoxFit.cover,
                   ),
                 ),
+              ),
+              Container(
+                color: Colors.black.withOpacity(0.8),
                 child: Scaffold(
                   backgroundColor: Colors.transparent,
                   appBar: AppBar(
